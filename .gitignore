@@ -21,4 +21,5 @@ venv/
 .env
 
 # Dataset
-data/
+data/*
+!data/.gitkeep
