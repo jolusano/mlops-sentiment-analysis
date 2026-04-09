@@ -14,8 +14,13 @@ def predict(text, model):
 if __name__ == "__main__":
     model = load_model()
 
-    sample_text = "This movie was absolutely amazing!"
-    result = predict(sample_text, model)
+    samples = [
+        "This movie was absolutely amazing!",
+        "Worst film I have ever seen.",
+        "It was okay, nothing special.",
+    ]
 
-    print("Input:", sample_text)
-    print("Prediction:", result)
+    for text in samples:
+        result = predict(text, model)
+        print("\nInput:", text)
+        print("Prediction:", result)
