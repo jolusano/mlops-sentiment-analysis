@@ -26,6 +26,9 @@ def convert_to_csv():
 if __name__ == "__main__":
     train_df, test_df = convert_to_csv()
 
+    train_df = train_df.sample(5000, random_state=42)
+    test_df = test_df.sample(1000, random_state=42)
+
     train_df.to_csv("data/train.csv", index=False)
     test_df.to_csv("data/test.csv", index=False)
 
