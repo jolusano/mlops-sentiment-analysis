@@ -2,13 +2,15 @@ from transformers import pipeline
 
 
 def load_model():
-    classifier = pipeline("sentiment-analysis")
+    classifier = pipeline(
+        "sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english"
+    )
     return classifier
 
 
 def predict(text, model):
     result = model(text)[0]
-    return result
+    return {"label": result["label"], "score": float(result["score"])}
 
 
 if __name__ == "__main__":
