@@ -11,7 +11,8 @@ hf_model = pipeline("sentiment-analysis")
 
 
 def predict_hf(text):
-    result = hf_model(text)[0]
+    result = hf_model(text, truncation=True, max_length=512)[0]
+
     return {"label": result["label"], "score": float(result["score"])}
 
 
